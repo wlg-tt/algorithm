@@ -7,4 +7,7 @@ public class math {
     public static void test(){
         System.out.println(1.0/0.0);
     }
+    public static void interval2D(){
+
+    }
 }
