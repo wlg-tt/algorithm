@@ -13,6 +13,8 @@
  */
 package leetcode.linkedlist;
 
+import java.util.List;
+
 /*
   Definition for singly-linked list.
   public class ListNode {
@@ -28,13 +30,18 @@ public class AddTwoNumbers {
     public ListNode AddTwoNumbers(ListNode l1, ListNode l2) {
 
         int carry = 0;
-        ListNode head = new ListNode(0);
+        ListNode head = null;
+        ListNode tail = null;
         while (l1 != null || l2 != null) {
             int n1 = l1 != null ? l1.val : 0;
             int n2 = l2 != null ? l2.val : 0;
             int sum = n1 + n2 + carry;
-
-            head.next = new ListNode(sum % 10);
+            if (head == null) {
+                head = tail = new ListNode(sum % 10);
+            } else {
+                tail.next = new ListNode(sum % 10);
+                tail = tail.next;
+            }
 
             carry = sum / 10;
             if (l1 != null) {
@@ -45,7 +52,7 @@ public class AddTwoNumbers {
             }
         }
         if (carry > 0) {
-            head.next = new ListNode(carry);
+            tail.next = new ListNode(carry);
         }
 
         return head;
