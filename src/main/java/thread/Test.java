@@ -10,17 +10,10 @@ public class Test {
         test();
     }
     public static void test(){
-        Runnable thread = new Runnable() {
-            public void run() {
-                System.out.println("333");
-            }
-        };
+        System.out.println(-20>>>2);
+        Runnable thread = () -> System.out.println("333");
         thread.run();
-        Thread thread1 = new Thread(){
-            public void run(){
-                System.out.println("444");
-            }
-        };
+        Thread thread1 = new Thread(() -> System.out.println("444"));
         thread1.start();
         System.out.println("222");
     }
